@@ -31,6 +31,7 @@ private var MUTED = Color.rgb(145,164,186)
 private var GREEN = Color.rgb(85,217,138)
 private var AMBER = Color.rgb(246,196,83)
 
+data class CdmEntity(val id:String,val type:String,val name:String)
 class MainActivity : Activity() {
     private lateinit var content: FrameLayout
     private var current = 0
@@ -632,7 +633,6 @@ class MainActivity : Activity() {
             }
             if(results.childCount==0) results.addView(TextView(ctx).apply{text="No matching records";setTextColor(AMBER)})
         }
-        data class CdmEntity(val id:String,val type:String,val name:String)
     }
 
     inner class CdmGraph(ctx:Context):View(ctx){

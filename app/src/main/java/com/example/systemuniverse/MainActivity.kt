@@ -32,6 +32,7 @@ private var GREEN = Color.rgb(85,217,138)
 private var AMBER = Color.rgb(246,196,83)
 
 data class CdmEntity(val id:String,val type:String,val name:String)
+data class D(val android:String,val model:String,val abis:String,val cores:Int,val ramTotal:Long,val ramAvail:Long,val ramLow:Boolean,val storageTotal:Long,val storageFree:Long,val battery:Int,val temp:Double,val charging:Boolean,val network:Boolean,val wifi:Boolean,val cellular:Boolean,val width:Int,val height:Int,val dpi:Int,val sensors:Int,val camera:Boolean,val mic:Boolean,val vibrator:Boolean,val secure:Boolean)
 class MainActivity : Activity() {
     private lateinit var content: FrameLayout
     private var current = 0
@@ -473,7 +474,6 @@ class MainActivity : Activity() {
             while(x>=1024&&i<4){x/=1024;i++}
             return String.format(Locale.US,"%.1f %s",x,u[i])
         }
-        private data class D(val android:String,val model:String,val abis:String,val cores:Int,val ramTotal:Long,val ramAvail:Long,val ramLow:Boolean,val storageTotal:Long,val storageFree:Long,val battery:Int,val temp:Double,val charging:Boolean,val network:Boolean,val wifi:Boolean,val cellular:Boolean,val width:Int,val height:Int,val dpi:Int,val sensors:Int,val camera:Boolean,val mic:Boolean,val vibrator:Boolean,val secure:Boolean)
         private fun scanData():D {
             val r=Runtime.getRuntime()
             val am=getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager
